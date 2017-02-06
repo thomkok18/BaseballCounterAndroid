@@ -169,32 +169,24 @@
                     android:id="@+id/wide1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginRight="24dp"
                     android:layout_weight="1"/>
 
                 <CheckBox
                     android:id="@+id/wide2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginRight="24dp"
                     android:layout_weight="1"/>
 
                 <CheckBox
                     android:id="@+id/wide3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginRight="24dp"
                     android:layout_weight="1"/>
 
                 <CheckBox
                     android:id="@+id/wide4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginRight="24dp"
                     android:layout_weight="1"/>
             </LinearLayout>
 
@@ -216,16 +208,12 @@
                     android:id="@+id/out2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginRight="24dp"
                     android:layout_weight="1"/>
 
                 <CheckBox
                     android:id="@+id/out3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="24dp"
-                    android:layout_marginRight="24dp"
                     android:layout_weight="1"/>
             </LinearLayout>
 
