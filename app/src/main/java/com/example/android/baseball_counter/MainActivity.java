@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             strike2.setEnabled(false);
         }
         if (!strike1.isChecked() && (strike2.isChecked() || strikeout.isChecked())) {
-            strike1.setChecked(true);
+            strike1.setChecked(false);
             strike2.setChecked(false);
             strikeout.setChecked(false);
         }
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
             out2.setEnabled(false);
         }
         if (!out1.isChecked() && (out2.isChecked() || out3.isChecked())) {
-            out1.setChecked(true);
+            out1.setChecked(false);
             out2.setChecked(false);
             out3.setChecked(false);
         }
