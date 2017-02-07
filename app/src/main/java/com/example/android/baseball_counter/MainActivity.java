@@ -29,6 +29,17 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Increase the score for Team A by 1 point.
      */
+    public void strikes(View view) {
+        strike1.isChecked();
+
+        if(strike1.isChecked() || strike2.isChecked() || strikeout.isChecked()) {
+
+        }
+    }
+
+    /**
+     * Increase the score for Team A by 1 point.
+     */
     public void addOneForTeam(View view) {
         if(team.getText().toString().equals("Team A")) {
             scoreTeamA++;
