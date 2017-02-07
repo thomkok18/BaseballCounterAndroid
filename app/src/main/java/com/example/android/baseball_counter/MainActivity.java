@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-import static com.example.android.baseball_counter.R.id.disableHome;
 import static com.example.android.baseball_counter.R.id.teamAanSlag;
 
 public class MainActivity extends AppCompatActivity {
@@ -45,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
             strike2.setEnabled(false);
         }
         if (!strike1.isChecked() && (strike2.isChecked() || strikeout.isChecked())) {
+            strike1.setChecked(true);
             strike2.setChecked(false);
             strikeout.setChecked(false);
         }
@@ -60,25 +60,26 @@ public class MainActivity extends AppCompatActivity {
             strike2.setEnabled(false);
             strikeout.setEnabled(false);
 
-            if (out1.isChecked() && out2.isChecked()) {
+            if (!out1.isChecked() && !out2.isChecked() && !out3.isChecked()) {
+                out1.setChecked(true);
+                out2.setEnabled(true);
+            } else if (out1.isChecked() && !out2.isChecked() && !out3.isChecked()) {
+                out2.setChecked(true);
+                out3.setEnabled(true);
+            } else if (out1.isChecked() && out2.isChecked() && !out3.isChecked()) {
                 out3.setChecked(true);
             }
             if (out1.isChecked() && out2.isChecked() && out3.isChecked()) {
                 out1.setChecked(false);
                 out2.setChecked(false);
                 out3.setChecked(false);
-                out1.setEnabled(true);
                 out2.setEnabled(false);
                 out3.setEnabled(false);
-            }
-
-            if (out1.isChecked()) {
-                out3.setEnabled(true);
-                out2.setChecked(true);
-            }
-            if (!out1.isChecked()) {
-                out2.setEnabled(true);
-                out1.setChecked(true);
+                if (team.getText().toString().equals("Team A")) {
+                    displayTeam("Team B");
+                } else {
+                    displayTeam("Team A");
+                }
             }
         }
     }
@@ -93,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
             out2.setEnabled(false);
         }
         if (!out1.isChecked() && (out2.isChecked() || out3.isChecked())) {
+            out1.setChecked(true);
             out2.setChecked(false);
             out3.setChecked(false);
         }
@@ -112,8 +114,12 @@ public class MainActivity extends AppCompatActivity {
             out3.setChecked(false);
             out2.setEnabled(false);
             out3.setEnabled(false);
+            if (team.getText().toString().equals("Team A")) {
+                displayTeam("Team B");
+            } else {
+                displayTeam("Team A");
+            }
         }
-
     }
 
     /**
@@ -140,16 +146,19 @@ public class MainActivity extends AppCompatActivity {
     public void reset(View view) {
         scoreTeamA = 0;
         scoreTeamB = 0;
-        if (out1.isChecked() || out2.isChecked() || out3.isChecked() || strike1.isChecked() || strike2.isChecked() || strikeout.isChecked()) {
-            out1.setChecked(false);
-            out2.setChecked(false);
-            out3.setChecked(false);
-            strike1.setChecked(false);
-            strike2.setChecked(false);
-            strikeout.setChecked(false);
-        }
+        out1.setChecked(false);
+        out2.setChecked(false);
+        out3.setChecked(false);
+        out2.setEnabled(false);
+        out3.setEnabled(false);
+        strike1.setChecked(false);
+        strike2.setChecked(false);
+        strikeout.setChecked(false);
+        strike2.setEnabled(false);
+        strikeout.setEnabled(false);
         displayForTeamA(scoreTeamA);
         displayForTeamB(scoreTeamB);
+        displayTeam("Team A");
     }
 
     /**
@@ -158,7 +167,6 @@ public class MainActivity extends AppCompatActivity {
     public void displayForTeamA(int score) {
         TextView scoreView = (TextView) findViewById(R.id.team_a_score);
         scoreView.setText(String.valueOf(score));
-
     }
 
     /**
@@ -167,6 +175,13 @@ public class MainActivity extends AppCompatActivity {
     public void displayForTeamB(int score) {
         TextView scoreView = (TextView) findViewById(R.id.team_b_score);
         scoreView.setText(String.valueOf(score));
+    }
 
+    /**
+     * Displays the Team.
+     */
+    public void displayTeam(String score) {
+        TextView scoreView = (TextView) findViewById(teamAanSlag);
+        scoreView.setText(String.valueOf(score));
     }
 }
